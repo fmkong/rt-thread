@@ -158,6 +158,8 @@
 
 /* Onboard Peripheral Drivers */
 
+#define BSP_USING_SDRAM
+
 /* On-chip Peripheral Drivers */
 
 #define BSP_USING_GPIO
