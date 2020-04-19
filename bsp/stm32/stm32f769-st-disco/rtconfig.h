@@ -82,6 +82,8 @@
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_PIN
+#define RT_USING_SPI
+#define RT_USING_QSPI
 
 /* Using USB */
 
@@ -165,6 +167,7 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_QSPI
 
 /* Board extended module Drivers */
 

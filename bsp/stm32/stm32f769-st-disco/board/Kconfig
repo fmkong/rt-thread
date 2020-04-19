@@ -55,6 +55,12 @@ menu "On-chip Peripheral Drivers"
                 default n
         endif
 
+    config BSP_USING_QSPI
+        bool "Enable QSPI BUS"
+        select RT_USING_QSPI
+        select RT_USING_SPI
+        default n
+
     source "../libraries/HAL_Drivers/Kconfig"
     
 endmenu
