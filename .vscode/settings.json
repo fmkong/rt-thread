@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "sdram_port.h": "c",
+        "lfs.h": "c",
+        "inttypes.h": "c",
+        "stdint.h": "c",
+        "finsh.h": "c",
+        "rtthread.h": "c",
+        "finsh_api.h": "c"
+    }
+}

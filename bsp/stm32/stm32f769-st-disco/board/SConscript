@@ -9,9 +9,12 @@ cwd = GetCurrentDir()
 src = Glob('board.c')
 src += Glob('CubeMX_Config/Src/stm32f7xx_hal_msp.c')
 
+if GetDepend(['BSP_USING_QSPI_FLASH']):
+    src += Glob('ports/drv_qspi_flash.c')
+
 path = [cwd]
 path += [cwd + '/CubeMX_Config/Inc']
-path += [cwd + '/ports/Inc']
+path += [cwd + '/ports/include']
 
 startup_path_prefix = SDK_LIB
 

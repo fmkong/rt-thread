@@ -43,7 +43,7 @@ if PLATFORM == 'gcc':
     OBJDUMP = PREFIX + 'objdump'
     OBJCPY = PREFIX + 'objcopy'
 
-    DEVICE = ' -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections'
+    DEVICE = ' -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -Wall'
     CFLAGS = DEVICE + ' -Dgcc'
     AFLAGS = ' -c' + DEVICE + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb '
     LFLAGS = DEVICE + ' -Wl,--gc-sections,-Map=rt-thread.map,-cref,-u,Reset_Handler -T board/linker_scripts/link.lds'
@@ -57,6 +57,7 @@ if PLATFORM == 'gcc':
     else:
         CFLAGS += ' -O2'
 
+    CFLAGS += ' -std=gnu11'
     CXXFLAGS = CFLAGS 
 
     POST_ACTION = OBJCPY + ' -O binary $TARGET rtthread.bin\n' + SIZE + ' $TARGET \n'
@@ -88,7 +89,8 @@ elif PLATFORM == 'armcc':
     else:
         CFLAGS += ' -O2'
 
-    CXXFLAGS = CFLAGS 
+    CXXFLAGS = CFLAGS
+    CFLAGS += ' --gnu'
     
     POST_ACTION = 'fromelf --bin $TARGET --output rtthread.bin \nfromelf -z $TARGET'
 

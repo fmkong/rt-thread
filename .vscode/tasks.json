@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-stm32f769i-disco",
+            "type": "shell",
+            //"args": [" ", "--"], //could also add args like this
+            "linux": {
+                "command": "cd ${workspaceRoot}/bsp/stm32/stm32f769-st-disco/ && source toolchain-setup.sh && scons -j8"
+            },
+            "osx": {
+                "command": "cd ${workspaceRoot}/bsp/stm32/stm32f769-st-disco/ && source toolchain-setup.sh && scons -j8"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}

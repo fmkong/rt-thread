@@ -1,0 +1,68 @@
+{
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "stm32f769i-disco",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rt-thread.elf",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "debugServerArgs": "-f /usr/local/share/openocd/scripts/board/st_nucleo_f7.cfg -f /usr/local/share/openocd/scripts/interface/stlink-v2-1.cfg -c init -c \"reset init\"",
+            "serverLaunchTimeout": 20000,
+            "filterStderr": true,
+            "filterStdout": false,
+            "serverStarted": "target halted due to debug-request, current mode: Thread",
+            "preLaunchTask": "build-stm32f769i-disco",
+            "setupCommands": [
+                { "text": "-target-select remote localhost:3333", "description": "connect to target", "ignoreFailures": false },
+                { "text": "-file-exec-and-symbols ${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rt-thread.elf", "description": "load file", "ignoreFailures": false},
+                { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },
+                { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
+                { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
+                { "text": "-interpreter-exec console \"monitor arm semihosting enable\"", "ignoreFailures": false },
+                { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+            ],
+            "logging": {
+                "moduleLoad": true,
+                "trace": true,
+                "engineLogging": true,
+                "programOutput": true,
+                "exceptions": true
+            },
+            "linux": {
+                "MIMode": "gdb",
+                "MIDebuggerPath": "${env:HOME}/toolchains/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gdb",
+                "debugServerPath": "openocd"
+            },
+            "osx": {
+                "MIMode": "gdb",
+                "MIDebuggerPath": "/usr/local/bin/arm-none-eabi-gdb",
+                "debugServerPath": "openocd"
+            },
+            "windows": {
+                "preLaunchTask": "mbed",
+                "MIMode": "gdb",
+                "MIDebuggerPath": "C:\\Program Files (x86)\\GNU Tools ARM Embedded\\4.9 2015q3\\bin\\arm-none-eabi-gdb.exe",
+                "debugServerPath": "openocd.exe",
+                "setupCommands": [
+                    // { "text": "-environment-cd ${workspaceRoot}\\bsp\\stm32\\stm32l4r9-crab\\" },
+                    { "text": "-target-select remote localhost:3333", "description": "connect to target", "ignoreFailures": false },
+                    { "text": "-file-exec-and-symbols crab.elf", "description": "load file", "ignoreFailures": false},
+                    { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },
+                    { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
+                    { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
+                    { "text": "-interpreter-exec console \"monitor arm semihosting enable\"", "ignoreFailures": false },
+                    { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+                ]
+            }
+        }
+    ]
+}
+

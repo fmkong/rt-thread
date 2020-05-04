@@ -138,7 +138,7 @@ typedef struct {
     {"S25FL032P", SFUD_MF_ID_CYPRESS, 0x02, 0x15, 4L*1024L*1024L, SFUD_WM_PAGE_256B, 4096, 0x20},                   \
     {"A25L080", SFUD_MF_ID_AMIC, 0x30, 0x14, 1L*1024L*1024L, SFUD_WM_PAGE_256B, 4096, 0x20},                        \
     {"F25L004", SFUD_MF_ID_ESMT, 0x20, 0x13, 512L*1024L, SFUD_WM_BYTE|SFUD_WM_AAI, 4096, 0x20},                     \
-    {"PCT25VF016B", SFUD_MF_ID_SST, 0x25, 0x41, 2L*1024L*1024L, SFUD_WM_BYTE|SFUD_WM_AAI, 4096, 0x20},              \
+    {"MX25L51245G", SFUD_MF_ID_MICRONIX, 0x20, 0x1A, 64L*1024L*1024L, SFUD_WM_PAGE_256B, 64L*1024L, 0xD8},              \
 }
 #endif /* SFUD_USING_FLASH_INFO_TABLE */
 
@@ -175,6 +175,8 @@ typedef struct {
     {SFUD_MF_ID_MICRONIX, 0x20, 0x16, NORMAL_SPI_READ|DUAL_OUTPUT},                                \
     /* GD25Q64B */                                                                                 \
     {SFUD_MF_ID_GIGADEVICE, 0x40, 0x17, NORMAL_SPI_READ|DUAL_OUTPUT},                              \
+    /* MX25L51245G */                                                                              \
+    {SFUD_MF_ID_MICRONIX, 0x20, 0x1A, NORMAL_SPI_READ|QUAD_OUTPUT|QUAD_IO},                        \
 }
 #endif /* SFUD_USING_QSPI */
 

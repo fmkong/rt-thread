@@ -14,6 +14,14 @@ fi
 
 export ARM_NONE_GCC_PATH=$HOME/toolchains/gcc-arm-none-eabi-9-2019-q4-major
 export CROSS_COMPILE=$ARM_NONE_GCC_PATH/bin/arm-none-eabi-
+C_PATH=$C_PATH:$C_INCLUDE_PATH:$ARM_NONE_GCC_PATH/arm-none-eabi
+C_INCLUDE_PATH=$C_INCLUDE_PATH:$ARM_NONE_GCC_PATH/arm-none-eabi/include
+CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$ARM_NONE_GCC_PATH/arm-none-eabi/include
+OBJC_INCLUDE_PATH=$OBJC_INCLUDE_PATH:$ARM_NONE_GCC_PATH/arm-none-eabi/include
+export C_PATH
+export C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH
+export OBJC_INCLUDE_PATH
 export RTT_CC=$BASEPATH/../../../
 export RTT_CC='gcc'
-export RTT_CC_PATH=$ARM_NONE_GCC_PATH/bin/
+export RTT_EXEC_PATH=$ARM_NONE_GCC_PATH/bin/

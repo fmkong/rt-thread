@@ -12,6 +12,7 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include <board.h>
+#include <inttypes.h>
 
 /* defined the LED0 pin: PB15 */
 #define LED0_PIN    GET_PIN(B, 15)
@@ -22,6 +23,7 @@ int main(void)
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
 
+    rt_kprintf("%s", PRId32);
     while (count++)
     {
         rt_pin_write(LED0_PIN, PIN_HIGH);
