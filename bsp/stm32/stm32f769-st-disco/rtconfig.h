@@ -30,7 +30,9 @@
 /* Memory Management */
 
 #define RT_USING_MEMPOOL
+#define RT_USING_MEMHEAP
 #define RT_USING_SMALL_MEM
+#define RT_USING_MEMTRACE
 #define RT_USING_HEAP
 
 /* Kernel Device Object */
@@ -49,7 +51,7 @@
 
 #define RT_USING_COMPONENTS_INIT
 #define RT_USING_USER_MAIN
-#define RT_MAIN_THREAD_STACK_SIZE 2048
+#define RT_MAIN_THREAD_STACK_SIZE 4096
 #define RT_MAIN_THREAD_PRIORITY 10
 
 /* C++ features */
@@ -84,6 +86,9 @@
 
 #define RT_USING_DEVICE_IPC
 #define RT_PIPE_BUFSZ 512
+#define RT_USING_SYSTEM_WORKQUEUE
+#define RT_SYSTEM_WORKQUEUE_STACKSIZE 2048
+#define RT_SYSTEM_WORKQUEUE_PRIORITY 23
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
@@ -99,18 +104,34 @@
 
 /* Using USB */
 
+#define RT_USING_USB_DEVICE
+#define RT_USBD_THREAD_STACK_SZ 4096
+#define USB_VENDOR_ID 0x0FFE
+#define USB_PRODUCT_ID 0x0001
+#define RT_USB_DEVICE_COMPOSITE
+#define RT_USB_DEVICE_NONE
 
 /* POSIX layer and C standard library */
 
-#define RT_LIBC_USING_TIME
+#define RT_USING_LIBC
+#define RT_USING_POSIX
 
 /* Network */
 
 /* Socket abstraction layer */
 
+#define RT_USING_SAL
+#define SAL_USING_POSIX
 
 /* Network interface device */
 
+#define RT_USING_NETDEV
+#define NETDEV_USING_IFCONFIG
+#define NETDEV_USING_PING
+#define NETDEV_USING_NETSTAT
+#define NETDEV_USING_AUTO_DEFAULT
+#define NETDEV_IPV4 1
+#define NETDEV_IPV6 0
 
 /* light weight TCP/IP stack */
 
@@ -128,6 +149,8 @@
 
 /* IoT - internet of things */
 
+#define PKG_USING_CJSON
+#define PKG_USING_CJSON_V102
 
 /* Wi-Fi */
 
@@ -139,9 +162,19 @@
 
 /* IoT Cloud */
 
+#define PKG_USING_LSSDP
+#define PKG_USING_LSSDP_LATEST_VERSION
 
 /* security packages */
 
+#define PKG_USING_TINYCRYPT
+#define PKG_USING_TINYCRYPT_V100
+#define TINY_CRYPT_MD5
+#define TINY_CRYPT_BASE64
+#define TINY_CRYPT_AES
+#define TINY_CRYPT_AES_ROM_TABLES
+#define TINY_CRYPT_SHA1
+#define TINY_CRYPT_SHA256
 
 /* language packages */
 
@@ -157,6 +190,15 @@
 #define PKG_CMBACKTRACE_PRINT_ENGLISH
 #define PKG_USING_CMBACKTRACE_V10400
 #define PKG_CMBACKTRACE_VER_NUM 0x10400
+#define PKG_USING_ADBD
+#define ADB_TR_USB_ENABLE
+#define ADB_TR_STACK_SIZE 2560
+#define ADB_SERVICE_SHELL_ENABLE
+#define ADB_SERVICE_FILE_ENABLE
+#define ADB_FILESYNC_STACK_SIZE 2304
+#define ADB_FILESYNC_RECV_TIMEOUT 2000
+#define ADB_USING_SSDP
+#define PKG_USING_ADBD_LATEST_VERSION
 
 /* system packages */
 
@@ -203,6 +245,10 @@
 #define BSP_USING_UART
 #define BSP_USING_UART1
 #define BSP_USING_QSPI
+#define BSP_USING_USBD
+#define BSP_USBD_TYPE_HS
+#define BSP_USBD_SPEED_HS
+#define BSP_USBD_PHY_ULPI
 
 /* Board extended module Drivers */
 

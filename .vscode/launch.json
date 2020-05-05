@@ -8,7 +8,7 @@
             "name": "stm32f769i-disco",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rt-thread.elf",
+            "program": "${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rtthread.elf",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceRoot}",
@@ -22,7 +22,7 @@
             "preLaunchTask": "build-stm32f769i-disco",
             "setupCommands": [
                 { "text": "-target-select remote localhost:3333", "description": "connect to target", "ignoreFailures": false },
-                { "text": "-file-exec-and-symbols ${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rt-thread.elf", "description": "load file", "ignoreFailures": false},
+                { "text": "-file-exec-and-symbols ${workspaceRoot}/bsp/stm32/stm32f769-st-disco/rtthread.elf", "description": "load file", "ignoreFailures": false},
                 { "text": "-interpreter-exec console \"monitor endian little\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
                 { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },

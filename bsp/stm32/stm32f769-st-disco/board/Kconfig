@@ -68,6 +68,29 @@ menu "On-chip Peripheral Drivers"
         select RT_USING_SPI
         default n
 
+    config BSP_USING_USBD
+        bool "Enable OTGHS as USB device"
+        select RT_USING_USB_DEVICE
+        select BSP_USBD_TYPE_HS
+        select BSP_USBD_SPEED_HS
+        select BSP_USBD_PHY_ULPI
+        default n
+
+    menuconfig BSP_USING_USBH
+        bool "Enable USB Host"
+        select RT_USING_USB_HOST
+        default n
+        if BSP_USING_USBH
+            menuconfig RT_USBH_MSTORAGE
+                bool "Enable Udisk Drivers"
+                default n
+                if RT_USBH_MSTORAGE
+                    config UDISK_MOUNTPOINT
+                    string "Udisk mount dir"
+                    default "/"
+                endif
+        endif
+
     source "../libraries/HAL_Drivers/Kconfig"
     
 endmenu
