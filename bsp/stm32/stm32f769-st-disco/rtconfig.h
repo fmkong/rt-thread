@@ -128,6 +128,10 @@
 /* Socket abstraction layer */
 
 #define RT_USING_SAL
+
+/* protocol stack implement */
+
+#define SAL_USING_LWIP
 #define SAL_USING_POSIX
 
 /* Network interface device */
@@ -142,6 +146,45 @@
 
 /* light weight TCP/IP stack */
 
+#define RT_USING_LWIP
+#define RT_USING_LWIP202
+#define RT_LWIP_IGMP
+#define RT_LWIP_ICMP
+#define RT_LWIP_DNS
+#define RT_LWIP_DHCP
+#define IP_SOF_BROADCAST 1
+#define IP_SOF_BROADCAST_RECV 1
+
+/* Static IPv4 Address */
+
+#define RT_LWIP_IPADDR "192.168.1.30"
+#define RT_LWIP_GWADDR "192.168.1.1"
+#define RT_LWIP_MSKADDR "255.255.255.0"
+#define RT_LWIP_UDP
+#define RT_LWIP_TCP
+#define RT_LWIP_RAW
+#define RT_MEMP_NUM_NETCONN 8
+#define RT_LWIP_PBUF_NUM 16
+#define RT_LWIP_RAW_PCB_NUM 4
+#define RT_LWIP_UDP_PCB_NUM 4
+#define RT_LWIP_TCP_PCB_NUM 4
+#define RT_LWIP_TCP_SEG_NUM 40
+#define RT_LWIP_TCP_SND_BUF 8196
+#define RT_LWIP_TCP_WND 8196
+#define RT_LWIP_TCPTHREAD_PRIORITY 10
+#define RT_LWIP_TCPTHREAD_MBOX_SIZE 8
+#define RT_LWIP_TCPTHREAD_STACKSIZE 1024
+#define RT_LWIP_ETHTHREAD_PRIORITY 12
+#define RT_LWIP_ETHTHREAD_STACKSIZE 1024
+#define RT_LWIP_ETHTHREAD_MBOX_SIZE 8
+#define LWIP_NETIF_STATUS_CALLBACK 1
+#define LWIP_NETIF_LINK_CALLBACK 1
+#define SO_REUSE 1
+#define LWIP_SO_RCVTIMEO 1
+#define LWIP_SO_SNDTIMEO 1
+#define LWIP_SO_RCVBUF 1
+#define LWIP_NETIF_LOOPBACK 0
+#define RT_LWIP_USING_PING
 
 /* AT commands */
 
@@ -271,6 +314,8 @@
 
 #define BSP_USING_SDRAM
 #define BSP_USING_QSPI_FLASH
+#define PHY_USING_LAN8720A
+#define BSP_USING_ETH
 
 /* On-chip Peripheral Drivers */
 
@@ -282,6 +327,8 @@
 #define BSP_USING_PWM
 #define BSP_USING_PWM1
 #define BSP_USING_PWM1_CH1
+#define BSP_USING_ONCHIP_RTC
+#define BSP_RTC_USING_LSE
 #define BSP_USBD_TYPE_HS
 #define BSP_USBD_SPEED_HS
 #define BSP_USBD_PHY_ULPI
