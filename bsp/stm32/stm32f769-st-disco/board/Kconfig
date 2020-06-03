@@ -41,12 +41,12 @@ menu "On-chip Peripheral Drivers"
                 bool "Enable UART1 RX DMA"
                 depends on BSP_USING_UART1 && RT_SERIAL_USING_DMA
                 default n
-                
+
             config BSP_UART1_TX_USING_DMA
                 bool "Enable UART1 TX DMA"
                 depends on BSP_USING_UART1 && RT_SERIAL_USING_DMA
                 default n
-                
+
             config BSP_USING_UART5
                 bool "Enable UART5"
                 default n
@@ -55,7 +55,7 @@ menu "On-chip Peripheral Drivers"
                 bool "Enable UART5 RX DMA"
                 depends on BSP_USING_UART5 && RT_SERIAL_USING_DMA
                 default n
-                
+
             config BSP_UART5_TX_USING_DMA
                 bool "Enable UART5 TX DMA"
                 depends on BSP_USING_UART5 && RT_SERIAL_USING_DMA
@@ -91,12 +91,45 @@ menu "On-chip Peripheral Drivers"
                 endif
         endif
 
+    menuconfig BSP_USING_TIM
+        bool "Enable timer"
+        default n
+        select RT_USING_HWTIMER
+        if BSP_USING_TIM
+            config BSP_USING_TIM15
+                bool "Enable TIM15"
+                default n
+
+            config BSP_USING_TIM16
+                bool "Enable TIM16"
+                default n
+
+            config BSP_USING_TIM17
+                bool "Enable TIM17"
+                default n
+        endif
+
+    menuconfig BSP_USING_PWM
+        bool "Enable pwm"
+        default n
+        select RT_USING_PWM
+        if BSP_USING_PWM
+        menuconfig BSP_USING_PWM1
+            bool "Enable timer1 output pwm"
+            default n
+            if BSP_USING_PWM1
+                config BSP_USING_PWM1_CH1
+                    bool "Enable PWM1 channel1"
+                    default n
+            endif
+        endif
+
     source "../libraries/HAL_Drivers/Kconfig"
-    
+
 endmenu
 
 menu "Board extended module Drivers"
 
 endmenu
- 
+
 endmenu
