@@ -6,7 +6,7 @@ BASEPATH=$(cd `dirname $0`; pwd)
 if [ ! -e $HOME/toolchains/gcc-arm-none-eabi-9-2019-q4-major/bin ] ; then
     echo Toolchain is not found, downloading
     (mkdir -p $HOME/toolchains && cd $HOME/toolchains &&
-     wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 &&
+     wget --no-check-certificate https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-rm/9-2019q4/gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 &&
      tar xjf gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux.tar.bz2 &&
      echo Toolchain download done
     ) || (echo Toolchain download failed)
